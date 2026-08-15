@@ -1,0 +1,80 @@
+#include <cmath>
+#include <Servo.h>
+
+int l1 = 30;
+int l2 = 20;
+int l3 = 20;
+int phi = 90;
+int CurrentPos = 30, 15, 20; #(X, Y, Z) positions
+
+servo shoulder;
+servo wrist;
+servo hip;
+
+
+void setup()
+{
+	shoulder.attach(9);
+	elbow.attach(10);
+	wrist.attach(11);
+	hip.attach(12);
+}
+
+void update()
+{
+	
+	movementcordination(int X, int Y, int Z)
+}
+
+void movementcordination(int X, int Y, int Z)
+{
+	ang1, ang2 = XYmovement(X, Y);
+	ang3 = z;
+
+	if (FWDtest(ang1, ang2, ang3)
+	{
+		smoothmove(ang1,ang2,ang3);
+	}
+	else
+	{
+		break 
+	}
+
+
+}
+
+int XYmovement(int targX, int targY) 
+{
+	/*
+	
+	This function serves the purpose of doing the inverse 
+	kinematic proces to find the needed angles 
+	to reach the desired point. it takes in the desired 
+	position then gives the needed angles. It doesnt adjust 
+	using current angle. that will be done elsewhere. 
+
+	
+	*/
+
+	wristX = targX - l3 * cos(phi);
+	wristY = targY - l3 * sin(phi);
+
+	first = wristX ^ 2 + wristY ^ 2 + l1 ^ 2 - l2 ^ 2
+	second = 2 * l1 * (wristX ^ 2 + wristY ^ 2) ^ 0.5
+
+	third =l1^2 + l2^2 - wristX^2 - wristY^2
+	fourth =2 * l1 * l2
+
+	Ang1 = atan2(wristY / wristX) - acos(first / second);
+	ang2 = 1.571 - acos(third / fourth);
+
+
+	return ang1, ang2, ;
+}
+
+void TrueMove(int targX, int targY, int moveZ)
+{
+
+
+}
+
